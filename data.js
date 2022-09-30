@@ -106,7 +106,7 @@ Data.addAnInvoice = async (req, res, next) =>
   });
 }
 
-Data.editAInvoice = async (req, res, next) =>
+Data.editAnInvoice = async (req, res, next) =>
 {
   verifyUser(req, async (err, user) =>
   {
