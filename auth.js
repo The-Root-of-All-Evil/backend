@@ -49,7 +49,7 @@ function verifyUser(req, errorFirstOrUserCallback)
   }
   catch (error)
   {
-    errorFirstOrUserCallback('You\'re not the beast we were expecting 👀')
+    errorFirstOrUserCallback('Invalid Token')
   }
 }
 

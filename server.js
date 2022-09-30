@@ -7,12 +7,11 @@ const cors = require('cors');
 const Data = require('./data.js')
 
 
-
 // bring in Mongoose
 const mongoose = require('mongoose');
 
 // must bring in a scheme if we want to interact with that model
-const Letter = require('./models/letter.js');
+const Invoice = require('./models/invoice.js');
 
 // add validation to confirm we are wired up to our mongo DB
 const db = mongoose.connection;
@@ -38,18 +37,18 @@ const PORT = process.env.PORT || 3002;
 /* ROUTES */
 app.get('/', (request, response) =>
 {
-  response.status(200).send('Welcome to our Love Letter Backend!');
+  response.status(200).send('Welcome to Invoice Keeper!');
 });
 
-app.get('/sentiment', Data.getSentiment);
+// route to get all invoices
+app.get('/invoices', Data.getInvoices);
 
-app.get('/letters', Data.getLetters);
 
-app.delete('/letters/:id', Data.deleteAnItem);
+app.delete('/invoices/:id', Data.deleteAnItem);
 
-app.post('/letters', Data.addAnLetter);
+app.post('/invoices', Data.addAnInvoice);
 
-app.put('/letters/:id', Data.editALetter);
+app.put('/invoices/:id', Data.editAnInvoice);
 
 app.get('*', (request, response) =>
 {
